@@ -6,17 +6,31 @@
 
 //1. Вариант решения с циклом
 
+
 void rangeOfNumbers (int num1, int num2)
 {
     string answer = string.Empty;
-    while (num1 <= num2)
+
+    if (num1 >= num2)
     {
-        answer = $"{answer}{num1}, ";
-        num1++;
+        while (num1 >= num2)
+        {
+            answer = $"{answer}{num1} ";
+            num1--;
+        }
+    }
+    else if (num1 <= num2)
+    {
+        while (num1 <= num2)
+        {
+            answer = $"{answer}{num1} ";
+            num1++;
+        }
     }
     int length = answer.Length;
-    System.Console.Write(answer.Substring(0,  length-2));
+    System.Console.Write(answer);
 }
+
 
 System.Console.WriteLine($"Введите первое число: ");
 int number1 = Convert.ToInt32(Console.ReadLine());
@@ -26,21 +40,47 @@ int number2 = Convert.ToInt32(Console.ReadLine());
 rangeOfNumbers(number1, number2);
 System.Console.WriteLine();
 
+
 //2. Вариант решения с рекурсией
 
 
 string rangeOfNaturalNumbers (int numStart, int numEnd)
-{
-    if (numStart <= numEnd) return rangeOfNaturalNumbers(numStart, numEnd - 1) + $"{numEnd}, ";
+{   
+    if (numStart <= numEnd) return rangeOfNaturalNumbers(numStart, numEnd - 1) + $"{numEnd} ";
     else return string.Empty;    
 }
+
 
 System.Console.WriteLine($"Введите первое число: ");
 int startNum = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine($"Введите второе число: ");
 int EndtNum = Convert.ToInt32(Console.ReadLine());
 
+int num1 = startNum;
+int num2 = EndtNum;
+
+int num = startNum;
+
+if (startNum > EndtNum)
+{
+    startNum = EndtNum;
+    EndtNum = num;
+}
+
+
 string answer = rangeOfNaturalNumbers(startNum, EndtNum);
 int length = answer.Length;
-answer = answer.Substring(0,  length-2);
+
+
+if (num1 <= num2) 
+{
+    answer = answer.Substring(0,  length-1);
+}
+else    
+{
+    answer = answer.Substring(0,  length-1);
+    string str = new string(answer.ToCharArray().Reverse().ToArray());
+    answer = str;   
+}
+
 System.Console.WriteLine(answer);
