@@ -27,8 +27,9 @@ void rangeOfNumbers (int num1, int num2)
             num1++;
         }
     }
-    int length = answer.Length;
-    System.Console.Write(answer);
+    
+    System.Console.Write($"Вывод чисел: {answer}");
+    System.Console.WriteLine();
 }
 
 
@@ -83,4 +84,4 @@ else
     answer = str;   
 }
 
-System.Console.WriteLine(answer);
+System.Console.WriteLine($"Вывод чисел: {answer}");

@@ -8,25 +8,29 @@
 //1. Решение 1, с помощью цикла.
 
 int rangeOfNumbers (int num1, int num2)
-{   
+{   string str = String.Empty;
     int sum = 0;
-    while (num1 <= num2)
+    int number = num1;
+    while (number <= num2)
     {
-        sum = sum + num1;
-        num1++;
+        str = $"{str} {number}";
+        sum = sum + number;
+        number++;       
     }
-    return sum;
+    System.Console.WriteLine($"Были определены числа:{str}. Сумма натуральных элементов в промежутке от {num1} до {num2} равна: ");
+    return sum;   
 }
+
 
 System.Console.WriteLine($"Введите первое число М: ");
 int number1 = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine($"Введите второе число N: ");
 int number2 = Convert.ToInt32(Console.ReadLine());
 
-System.Console.Write($"Сумма натуральных элементов в промежутке от M до N равна: ");
+
+//System.Console.Write($"Сумма натуральных элементов в промежутке от M до N равна: ");
 System.Console.WriteLine(rangeOfNumbers(number1, number2));
 System.Console.WriteLine();
-
 
 
 //2. Вариант решения с рекурсией
